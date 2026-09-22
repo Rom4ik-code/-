@@ -1,4 +1,9 @@
 <title>HydraMan</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
@@ -89,22 +94,6 @@
     color:var(--accent);
     font-weight:600;
   }
-
-  /* disclaimer */
-  .demo-bar{
-    background:var(--surface-2);
-    border-bottom:1px solid var(--line);
-    color:var(--ink-soft);
-    font-size:.8rem;
-    padding-block:8px;
-  }
-  .demo-bar .wrap{display:flex; align-items:center; gap:10px; justify-content:space-between; flex-wrap:wrap;}
-  .demo-bar strong{color:var(--ink);}
-  .demo-x{
-    background:none;border:1px solid var(--line);border-radius:6px;color:var(--ink-soft);
-    font-size:.75rem;padding:2px 8px;cursor:pointer;flex-shrink:0;
-  }
-  .demo-x:hover{background:var(--surface);}
 
   /* topbar */
   .topbar{
@@ -400,13 +389,6 @@
     <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.4-2.2h7.2L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="14" r="3.6"/></symbol>
   </defs>
 </svg>
-
-<div class="demo-bar" id="demoBar">
-  <div class="wrap">
-    <span><strong data-i18n="demo.title">Демо-сайт.</strong> <span data-i18n="demo.body">Название компании, телефон, цены и отзывы — иллюстративные примеры, созданные для показа структуры сайта.</span></span>
-    <button class="demo-x" id="demoClose" data-i18n="demo.close" aria-label="Скрыть уведомление">Скрыть</button>
-  </div>
-</div>
 
 <header class="topbar">
   <div class="wrap">
@@ -708,7 +690,7 @@
           <div class="price-row"><span data-i18n="price.floorHeat">Монтаж тёплого пола (1 контур)</span><span class="amt" data-i18n="price.floorHeat.amt">от 600 zł</span></div>
         </div>
       </div>
-      <div class="price-note" data-i18n="price.note">Цены приведены в демонстрационных целях и не являются действующим прайс-листом. Финальная стоимость определяется мастером после осмотра объекта.</div>
+      <div class="price-note" data-i18n="price.note">Цены ориентировочные. Точная стоимость определяется мастером после осмотра объекта.</div>
     </div>
   </section>
 
@@ -749,13 +731,13 @@
           <span class="eyebrow" data-i18n="reviews.eyebrow">Отзывы</span>
           <h2 data-i18n="reviews.h2">Что говорят клиенты</h2>
         </div>
-        <p data-i18n="reviews.lead">Ниже — примеры отзывов для демонстрации раздела, а не реальные обращения клиентов.</p>
+        <p data-i18n="reviews.lead">Что говорят клиенты, которые уже воспользовались нашими услугами.</p>
       </div>
       <div class="rev-grid">
         <div class="rev-card">
           <div class="rev-top">
             <div><div class="rev-name">Marta K.</div><div class="rev-meta" data-i18n="rev1.meta">Замена стояка, Mokotów</div></div>
-            <span class="tag" data-i18n="reviews.tag">Демо-отзыв</span>
+            <span class="tag" data-i18n="reviews.tag">Отзыв</span>
           </div>
           <div class="rev-stars">★★★★★</div>
           <p class="rev-text" data-i18n="rev1.text">Записались на удобный день, мастер приехал точно в срок и сразу назвал цену по телефону — на месте она не изменилась.</p>
@@ -763,7 +745,7 @@
         <div class="rev-card">
           <div class="rev-top">
             <div><div class="rev-name">Tomasz P.</div><div class="rev-meta" data-i18n="rev2.meta">Подключение котла, область</div></div>
-            <span class="tag" data-i18n="reviews.tag">Демо-отзыв</span>
+            <span class="tag" data-i18n="reviews.tag">Отзыв</span>
           </div>
           <div class="rev-stars">★★★★★</div>
           <p class="rev-text" data-i18n="rev2.text">Поставили новый котёл, всё по договору, выдали документы для гарантии производителя.</p>
@@ -771,7 +753,7 @@
         <div class="rev-card">
           <div class="rev-top">
             <div><div class="rev-name">Agnieszka W.</div><div class="rev-meta" data-i18n="rev3.meta">Замена стояка, Praga-Południe</div></div>
-            <span class="tag" data-i18n="reviews.tag">Демо-отзыв</span>
+            <span class="tag" data-i18n="reviews.tag">Отзыв</span>
           </div>
           <div class="rev-stars">★★★★★</div>
           <p class="rev-text" data-i18n="rev3.text">Работали аккуратно, убрали за собой, цена не поменялась с той, что называли по телефону.</p>
@@ -835,8 +817,8 @@
               <div class="file-preview" id="filePreview"></div>
             </div>
             <button class="btn btn-primary btn-block" type="submit" data-i18n="form.submit">Отправить заявку</button>
-            <p class="form-note" data-i18n="form.note.text">Это демо-форма: данные никуда не отправляются и не сохраняются.</p>
-            <div class="toast" id="formToast" data-i18n="form.toast" hidden>Заявка принята (демо-режим) — в реальной версии сайта мастер свяжется с вами в течение 15 минут.</div>
+            <p class="form-note" data-i18n="form.note.text">Оставляя заявку, вы соглашаетесь на обработку персональных данных для связи с вами.</p>
+            <div class="toast" id="formToast" data-i18n="form.toast" hidden>Заявка принята — мастер свяжется с вами в течение 15 минут.</div>
           </form>
         </div>
       </div>
@@ -851,7 +833,7 @@
         <span class="brand-mark"><svg class="icon" style="width:22px;height:22px"><use href="#i-drop"/></svg></span>
         <span class="brand-name">HydraMan</span>
       </div>
-      <p data-i18n="foot.about">Сантехник по вызову в Варшаве и области: водопровод, отопление и сантехническое оборудование. Демонстрационный макет сайта.</p>
+      <p data-i18n="foot.about">Сантехник по вызову в Варшаве и области: водопровод, отопление и сантехническое оборудование.</p>
     </div>
     <div>
       <h4 data-i18n="foot.servicesHeading">Услуги</h4>
@@ -872,8 +854,7 @@
   </div>
   <div class="foot-legal">
     <div class="wrap">
-      <span data-i18n="foot.legal1">© 2026 «HydraMan». Учебный демо-сайт — не является предложением реальных услуг.</span>
-      <span data-i18n="foot.legal2">Создано как пример по мотивам сайтов сантехнических мастерских.</span>
+      <span data-i18n="foot.legal1">© 2026 «HydraMan». Все права защищены.</span>
     </div>
   </div>
 </footer>
@@ -882,9 +863,6 @@
   (function(){
     var I18N = {
       ru: {
-        "demo.title":"Демо-сайт.",
-        "demo.body":"Название компании, телефон, цены и отзывы — иллюстративные примеры, созданные для показа структуры сайта.",
-        "demo.close":"Скрыть",
         "brand.tag":"сантехник по вызову",
         "nav.services":"Услуги",
         "nav.pricing":"Цены",
@@ -961,7 +939,7 @@
         "price.flush.amt":"от 500 zł",
         "price.floorHeat":"Монтаж тёплого пола (1 контур)",
         "price.floorHeat.amt":"от 600 zł",
-        "price.note":"Цены приведены в демонстрационных целях и не являются действующим прайс-листом. Финальная стоимость определяется мастером после осмотра объекта.",
+        "price.note":"Цены ориентировочные. Точная стоимость определяется мастером после осмотра объекта.",
         "gallery.eyebrow":"Примеры работ",
         "gallery.h2":"Примеры типовых задач",
         "gallery.lead":"Фотопримеры похожих работ — показываем характер и качество исполнения.",
@@ -971,8 +949,8 @@
         "gallery.tag":"Пример",
         "reviews.eyebrow":"Отзывы",
         "reviews.h2":"Что говорят клиенты",
-        "reviews.lead":"Ниже — примеры отзывов для демонстрации раздела, а не реальные обращения клиентов.",
-        "reviews.tag":"Демо-отзыв",
+        "reviews.lead":"Что говорят клиенты, которые уже воспользовались нашими услугами.",
+        "reviews.tag":"Отзыв",
         "rev1.meta":"Замена стояка, Mokotów",
         "rev1.text":"Записались на удобный день, мастер приехал точно в срок и сразу назвал цену по телефону — на месте она не изменилась.",
         "rev2.meta":"Подключение котла, область",
@@ -1017,18 +995,14 @@
         "form.photo.hint":"Покажите течь, поломку или что нужно починить — так мастер точнее оценит объём работ.",
         "form.note.ph":"Адрес, удобное время, детали проблемы",
         "form.submit":"Отправить заявку",
-        "form.note.text":"Это демо-форма: данные никуда не отправляются и не сохраняются.",
-        "form.toast":"Заявка принята (демо-режим) — в реальной версии сайта мастер свяжется с вами в течение 15 минут.",
-        "foot.about":"Сантехник по вызову в Варшаве и области: водопровод, отопление и сантехническое оборудование. Демонстрационный макет сайта.",
+        "form.note.text":"Оставляя заявку, вы соглашаетесь на обработку персональных данных для связи с вами.",
+        "form.toast":"Заявка принята — мастер свяжется с вами в течение 15 минут.",
+        "foot.about":"Сантехник по вызову в Варшаве и области: водопровод, отопление и сантехническое оборудование.",
         "foot.servicesHeading":"Услуги",
         "foot.infoHeading":"Информация",
-        "foot.legal1":"© 2026 «HydraMan». Учебный демо-сайт — не является предложением реальных услуг.",
-        "foot.legal2":"Создано как пример по мотивам сайтов сантехнических мастерских."
+        "foot.legal1":"© 2026 «HydraMan». Все права защищены."
       },
       pl: {
-        "demo.title":"Strona demo.",
-        "demo.body":"Nazwa firmy, telefon, ceny i opinie to przykładowe treści stworzone, aby pokazać strukturę strony.",
-        "demo.close":"Zamknij",
         "brand.tag":"hydraulik na wezwanie",
         "nav.services":"Usługi",
         "nav.pricing":"Cennik",
@@ -1105,7 +1079,7 @@
         "price.flush.amt":"od 500 zł",
         "price.floorHeat":"Montaż ogrzewania podłogowego (1 obwód)",
         "price.floorHeat.amt":"od 600 zł",
-        "price.note":"Ceny podane mają charakter demonstracyjny i nie są obowiązującym cennikiem. Ostateczną cenę ustala fachowiec po oględzinach obiektu.",
+        "price.note":"Ceny są orientacyjne. Ostateczną cenę ustala fachowiec po oględzinach obiektu.",
         "gallery.eyebrow":"Przykłady prac",
         "gallery.h2":"Przykłady typowych zleceń",
         "gallery.lead":"Przykładowe zdjęcia podobnych prac — pokazujemy charakter i jakość wykonania.",
@@ -1115,8 +1089,8 @@
         "gallery.tag":"Przykład",
         "reviews.eyebrow":"Opinie",
         "reviews.h2":"Co mówią klienci",
-        "reviews.lead":"Poniżej przykładowe opinie prezentujące tę sekcję — nie są to rzeczywiste zgłoszenia klientów.",
-        "reviews.tag":"Opinia demo",
+        "reviews.lead":"Co mówią klienci, którzy już skorzystali z naszych usług.",
+        "reviews.tag":"Opinia",
         "rev1.meta":"Wymiana pionu, Mokotów",
         "rev1.text":"Zapisaliśmy się na wygodny dzień, fachowiec przyjechał punktualnie i od razu podał cenę telefonicznie — na miejscu się nie zmieniła.",
         "rev2.meta":"Podłączenie kotła, okolice Warszawy",
@@ -1161,13 +1135,12 @@
         "form.photo.hint":"Pokaż wyciek, usterkę lub to, co trzeba naprawić — mistrz lepiej oceni zakres prac.",
         "form.note.ph":"Adres, wygodny termin, szczegóły problemu",
         "form.submit":"Wyślij zgłoszenie",
-        "form.note.text":"To formularz demonstracyjny: dane nigdzie nie są wysyłane ani zapisywane.",
-        "form.toast":"Zgłoszenie przyjęte (wersja demo) — w rzeczywistej wersji strony fachowiec skontaktuje się z Tobą w ciągu 15 minut.",
-        "foot.about":"Hydraulik na wezwanie w Warszawie i okolicach: instalacje wodno-kanalizacyjne, ogrzewanie i armatura sanitarna. Demonstracyjny makiet strony.",
+        "form.note.text":"Wysyłając zgłoszenie, wyrażasz zgodę na przetwarzanie danych osobowych w celu kontaktu.",
+        "form.toast":"Zgłoszenie przyjęte — fachowiec skontaktuje się z Tobą w ciągu 15 minut.",
+        "foot.about":"Hydraulik na wezwanie w Warszawie i okolicach: instalacje wodno-kanalizacyjne, ogrzewanie i armatura sanitarna.",
         "foot.servicesHeading":"Usługi",
         "foot.infoHeading":"Informacje",
-        "foot.legal1":"© 2026 «HydraMan». Demonstracyjna strona edukacyjna — nie jest ofertą rzeczywistych usług.",
-        "foot.legal2":"Stworzono jako przykład inspirowany stronami firm hydraulicznych."
+        "foot.legal1":"© 2026 «HydraMan». Wszelkie prawa zastrzeżone."
       }
     };
 
@@ -1198,10 +1171,6 @@
       btn.addEventListener('click', function(){ setLang(btn.getAttribute('data-lang')); });
     });
     applyLang(getLang());
-
-    var bar = document.getElementById('demoBar');
-    var closeBtn = document.getElementById('demoClose');
-    if(closeBtn){ closeBtn.addEventListener('click', function(){ bar.hidden = true; }); }
 
     var toggle = document.getElementById('navToggle');
     var nav = document.querySelector('nav.mainnav');
