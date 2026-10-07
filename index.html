@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="HydraMan — hydraulik na wezwanie w Warszawie i okolicach.">
 <title>HydraMan</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -196,6 +202,13 @@
   }
   .svc-card h3{font-size:1.08rem; text-transform:none; font-weight:700; letter-spacing:0; margin-top:8px;}
   .svc-card p{font-size:.88rem; flex-grow:1;}
+  .svc-card--wide{grid-column:1 / -1; display:grid; grid-template-columns:1.35fr 1fr; height:auto;}
+  .svc-card--wide .svc-photo{aspect-ratio:auto; min-height:300px;}
+  .svc-card--wide .svc-photo::after{background:linear-gradient(90deg, rgba(20,15,38,0) 70%, rgba(20,15,38,.18) 100%);}
+  .svc-card--wide .svc-body{padding:30px 28px; justify-content:center;}
+  .svc-card--wide .svc-icon{position:static; margin-bottom:6px;}
+  .svc-card--wide h3{font-size:1.3rem;}
+  .svc-card--wide p{font-size:.95rem; flex-grow:0;}
   .svc-price{
     font-family:"IBM Plex Mono"; font-size:.82rem; font-weight:600; color:var(--accent);
     border-top:1px solid var(--line); padding-top:10px; margin-top:4px;
@@ -354,6 +367,9 @@
     .hero-figure{order:-1; max-width:270px; margin:0 auto;}
     .about-grid{grid-template-columns:1fr;}
     .svc-grid, .gal-grid, .rev-grid{grid-template-columns:repeat(2,1fr);}
+    .svc-card--wide{grid-template-columns:1fr;}
+    .svc-card--wide .svc-photo{aspect-ratio:3/2; min-height:0;}
+    .svc-card--wide .svc-body{padding:26px 20px 22px;}
     .price-groups, .contact-grid{grid-template-columns:1fr;}
     .stat-grid{grid-template-columns:repeat(2,1fr);}
     .foot-grid{grid-template-columns:1fr; padding-block:30px;}
@@ -371,6 +387,9 @@
     .lang-btn{padding:7px 8px;}
   }
 </style>
+</head>
+<body>
+
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -574,6 +593,14 @@
             <div class="svc-icon"><svg class="icon"><use href="#i-gear"/></svg></div>
             <h3 data-i18n="svc.repair.title">Мелкий ремонт</h3>
             <p data-i18n="svc.repair.desc">Замена картриджей, прокладок, кранов и смывных бачков — быстро и без лишних деталей.</p>
+          </div>
+        </div>
+        <div class="svc-card svc-card--wide">
+          <div class="svc-photo"><img src="photos/pompy.jpg" alt="Pompy ciepła Daikin, LG, Panasonic, NIBE, Mitsubishi Electric" loading="lazy"></div>
+          <div class="svc-body">
+            <div class="svc-icon"><svg class="icon"><use href="#i-flame"/></svg></div>
+            <h3 data-i18n="svc.pump.title">Тепловые насосы</h3>
+            <p data-i18n="svc.pump.desc">Подбор, монтаж и подключение воздушных тепловых насосов к системе отопления и горячей воды: наружный блок, обвязка, бойлер, запуск и настройка.</p>
           </div>
         </div>
       </div>
@@ -839,6 +866,7 @@
       <h4 data-i18n="foot.servicesHeading">Услуги</h4>
       <ul>
         <li><a href="#services" data-i18n="svc.repair.title">Мелкий ремонт</a></li>
+        <li><a href="#services" data-i18n="svc.pump.title">Тепловые насосы</a></li>
         <li><a href="#services" data-i18n="svc.water.title">Водопровод и канализация</a></li>
         <li><a href="#services" data-i18n="svc.heat.title">Отопление</a></li>
       </ul>
@@ -900,6 +928,8 @@
         "svc.fixtures.price":"от 200 zł",
         "svc.repair.title":"Мелкий ремонт",
         "svc.repair.desc":"Замена картриджей, прокладок, кранов и смывных бачков — быстро и без лишних деталей.",
+        "svc.pump.title":"Тепловые насосы",
+        "svc.pump.desc":"Подбор, монтаж и подключение воздушных тепловых насосов к системе отопления и горячей воды: наружный блок, обвязка, бойлер, запуск и настройка.",
         "svc.repair.price":"от 110 zł",
         "about.masterName":"Leonid К.",
         "about.masterRole":"Мастер-сантехник на все руки.",
@@ -1040,6 +1070,8 @@
         "svc.fixtures.price":"od 200 zł",
         "svc.repair.title":"Drobne naprawy",
         "svc.repair.desc":"Wymiana głowic, uszczelek, zaworów i spłuczek — szybko i bez zbędnych formalności.",
+        "svc.pump.title":"Pompy ciepła",
+        "svc.pump.desc":"Dobór, montaż i podłączenie powietrznych pomp ciepła do instalacji grzewczej i ciepłej wody: jednostka zewnętrzna, orurowanie, zasobnik, uruchomienie i regulacja.",
         "svc.repair.price":"od 110 zł",
         "about.masterName":"Leonid К.",
         "about.masterRole":"Mistrz hydraulik – złota rączka.",
@@ -1242,3 +1274,6 @@
     }
   })();
 </script>
+
+</body>
+</html>
