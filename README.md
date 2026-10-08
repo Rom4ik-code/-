@@ -1,6 +1,6 @@
 # HydraMan — файлы сайта
 
-Содержимое: `index.html` (сайт), папка `photos/` (фото, включая pompy.jpg), файлы иконки (favicon.ico, favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png, android-chrome-192x192.png).
+Содержимое: `index.html` (сайт), папка `photos/` (фото: вода, отопление, сантехника, ремонт, котёл, пожарная система, тепловые насосы), файлы иконки (favicon.ico, favicon-16x16.png, favicon-32x32.png, apple-touch-icon.png, android-chrome-192x192.png).
 
 ## Загрузка на GitHub
 1. Откройте репозиторий → **Add file → Upload files**.

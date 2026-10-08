@@ -145,27 +145,27 @@
   .lang-btn.active{background:var(--primary); color:var(--primary-ink);}
   .lang-btn:not(.active):hover{background:var(--surface-2); color:var(--ink);}
 
-  /* hero — вариант A, «чертёж трубопровода» */
+  /* hero — фото на весь экран */
   .hero{
-    position:relative; overflow:hidden;
-    padding-block: clamp(36px,6vw,64px) clamp(28px,5vw,48px);
-    background:
-      radial-gradient(circle at 85% 15%, rgba(148,110,255,.35), transparent 55%),
-      linear-gradient(155deg, #241a3d 0%, #140f26 65%);
+    position:relative; overflow:hidden; isolation:isolate; background:radial-gradient(ellipse at 70% 110%, #4c2a99 0%, #1a1133 55%, #0f0a20 100%);
+    padding-block: clamp(40px,7vw,84px) clamp(36px,6vw,72px);
+    min-height:min(560px,80vh);
   }
-  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.15fr .85fr; gap:32px; align-items:center;}
-  .hero-copy{max-width:640px;}
-  .hero-figure{display:flex; align-items:center; justify-content:center;}
-  .hero-figure svg{width:100%; max-width:360px; height:auto;}
-  .hero h1{font-size:clamp(2rem,4.4vw,3.4rem); font-weight:800; margin-bottom:14px; color:#f3eefc;}
-  .hero h1 em{font-style:normal; color:#c9b3ff;}
-  .hero-lead{font-size:1.05rem; max-width:46ch; margin-bottom:24px; color:#cabfe3;}
+  .hero-fx{position:absolute; inset:0; width:100%; height:100%; z-index:0; display:block;}
+  .hero .wrap{position:relative; z-index:2; display:grid; grid-template-columns:1.15fr .85fr; gap:32px; align-items:end;}
+  .hero-copy{max-width:640px; min-width:0;}
+  .hero-side{justify-self:end; align-self:end; max-width:270px; padding:16px 20px; border-radius:16px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); color:#f3eefc;}
+  .hero-side small{display:block; font-family:"IBM Plex Mono",monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:#cbbcf0; margin-bottom:6px;}
+  .hero-side strong{font-family:"Barlow Condensed",sans-serif; font-size:1.5rem; text-transform:uppercase; line-height:1.1; display:block;}
+  .hero h1{font-size:clamp(1.8rem,3.7vw,3rem); font-weight:800; margin-bottom:14px; color:#f3eefc; text-wrap:balance;}
+  .hero h1 em{font-style:normal; color:#c9b6ff;}
+  .hero-lead{font-size:1.05rem; max-width:46ch; margin-bottom:24px; color:#d5cbe8;}
   .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:26px;}
-  .hero .btn-ghost{background:rgba(255,255,255,.08); color:#f3eefc; border-color:rgba(255,255,255,.25);}
+  .hero .btn-ghost{background:rgba(255,255,255,.1); color:#fff; border-color:rgba(255,255,255,.3); backdrop-filter:blur(6px);}
   .trust-strip{display:flex; gap:22px; flex-wrap:wrap;}
   .trust-item{display:flex; align-items:baseline; gap:7px;}
   .trust-item b{font-family:"Barlow Condensed"; font-size:1.5rem; color:#f3eefc; font-weight:800;}
-  .trust-item span{font-size:.78rem; color:#a99cc9; max-width:12ch; line-height:1.2;}
+  .trust-item span{font-size:.78rem; color:#c9bde0; max-width:12ch; line-height:1.2;}
   .trust-item .icon{align-self:center; width:19px; height:19px; color:#c9b3ff; flex-shrink:0;}
   .pill{
     display:inline-flex; align-items:center; gap:6px; background:var(--good-bg); color:var(--good);
@@ -364,7 +364,8 @@
     nav.mainnav{display:none;}
     .navtoggle{display:inline-flex; align-items:center;}
     .hero .wrap{grid-template-columns:1fr;}
-    .hero-figure{order:-1; max-width:270px; margin:0 auto;}
+    .hero-side{justify-self:start;}
+    .hero{min-height:0;}
     .about-grid{grid-template-columns:1fr;}
     .svc-grid, .gal-grid, .rev-grid{grid-template-columns:repeat(2,1fr);}
     .svc-card--wide{grid-template-columns:1fr;}
@@ -389,7 +390,6 @@
 </style>
 </head>
 <body>
-
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -440,6 +440,7 @@
 
 <main id="top">
   <section class="hero">
+    <canvas class="hero-fx" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="hero-copy">
         <h1><span data-i18n="hero.title1">Сантехник, который приезжает</span><br><em data-i18n="hero.title2">раньше, чем вы досмотрите видео «как остановить течь»</em></h1>
@@ -454,101 +455,10 @@
           <div class="trust-item"><svg class="icon"><use href="#i-star"/></svg><b data-i18n="trust.happy.num">100%</b><span data-i18n="trust.happy">довольных клиентов</span></div>
         </div>
       </div>
-      <div class="hero-figure" aria-hidden="true">
-        <svg viewBox="0 0 480 460">
-          <circle cx="240" cy="190" r="190" fill="#ffffff" opacity=".04"/>
-          <circle cx="240" cy="230" r="150" fill="#ffffff" opacity=".06"/>
-          <circle cx="240" cy="230" r="95" fill="#ffffff" opacity=".05"/>
-
-          <!-- ground shadows -->
-          <ellipse cx="118" cy="300" rx="50" ry="8" fill="#000000" opacity=".2"/>
-          <ellipse cx="362" cy="300" rx="50" ry="8" fill="#000000" opacity=".2"/>
-          <ellipse cx="240" cy="440" rx="94" ry="14" fill="#000000" opacity=".24"/>
-
-          <!-- BACK LEFT: colleague with toolbox -->
-          <g transform="translate(118,300) scale(.62)" opacity=".9">
-            <rect x="-41" y="-126" width="36" height="112" rx="15" fill="#4a3785"/>
-            <rect x="5" y="-126" width="36" height="112" rx="15" fill="#4a3785"/>
-            <rect x="-47" y="-24" width="48" height="24" rx="8" fill="#241a3d"/>
-            <rect x="-1" y="-24" width="48" height="24" rx="8" fill="#241a3d"/>
-            <rect x="-51" y="-264" width="104" height="140" rx="30" fill="#6a4fc4"/>
-            <rect x="-71" y="-148" width="144" height="20" rx="7" fill="#241a3d"/>
-            <rect x="-73" y="-152" width="24" height="28" rx="5" fill="#3a1d70"/>
-            <rect x="-11" y="-276" width="22" height="16" fill="#d4b48c"/>
-            <circle cx="0" cy="-304" r="34" fill="#e3c69c"/>
-            <path d="M-33,-308a33 33 0 0 1 66 0c0 4-6 4-10 0-8-8-20-10-28-10-10 0-20 3-27 9-2 2-1 1-1 1z" fill="#2c2010"/>
-            <g transform="translate(-111,-168) rotate(-6)">
-              <rect x="0" y="0" width="92" height="52" rx="9" fill="#3a1d70"/>
-              <rect x="0" y="0" width="92" height="18" rx="6" fill="#6a4fc4"/>
-              <path d="M24 0v-14a10 10 0 0 1 20 0v14" fill="none" stroke="#3a1d70" stroke-width="8" stroke-linecap="round"/>
-              <circle cx="16" cy="26" r="4.5" fill="#a894dd"/>
-              <circle cx="76" cy="26" r="4.5" fill="#a894dd"/>
-            </g>
-            <line x1="-41" y1="-242" x2="-57" y2="-170" stroke="#6a4fc4" stroke-width="27" stroke-linecap="round"/>
-            <line x1="43" y1="-244" x2="75" y2="-290" stroke="#6a4fc4" stroke-width="27" stroke-linecap="round"/>
-            <circle cx="-57" cy="-170" r="15" fill="#e7e0f7"/>
-            <circle cx="75" cy="-290" r="15" fill="#e7e0f7"/>
-          </g>
-
-          <!-- BACK RIGHT: colleague tightening a fitting (mirrored) -->
-          <g transform="translate(362,300) scale(-.62,.62)" opacity=".9">
-            <rect x="-41" y="-126" width="36" height="112" rx="15" fill="#4a3785"/>
-            <rect x="5" y="-126" width="36" height="112" rx="15" fill="#4a3785"/>
-            <rect x="-47" y="-24" width="48" height="24" rx="8" fill="#241a3d"/>
-            <rect x="-1" y="-24" width="48" height="24" rx="8" fill="#241a3d"/>
-            <rect x="-51" y="-264" width="104" height="140" rx="30" fill="#6a4fc4"/>
-            <rect x="-71" y="-148" width="144" height="20" rx="7" fill="#241a3d"/>
-            <rect x="-73" y="-152" width="24" height="28" rx="5" fill="#3a1d70"/>
-            <rect x="-11" y="-276" width="22" height="16" fill="#d4b48c"/>
-            <circle cx="0" cy="-304" r="34" fill="#e3c69c"/>
-            <path d="M-33,-308a33 33 0 0 1 66 0c0 4-6 4-10 0-8-8-20-10-28-10-10 0-20 3-27 9-2 2-1 1-1 1z" fill="#2c2010"/>
-            <rect x="-73" y="-196" width="80" height="30" rx="8" fill="#3a1d70"/>
-            <circle cx="-73" cy="-181" r="15" fill="#6a4fc4"/>
-            <circle cx="7" cy="-181" r="15" fill="#6a4fc4"/>
-            <g transform="translate(-33,-181)" stroke="#e7e0f7" stroke-width="3.5" stroke-linecap="round">
-              <circle r="15" fill="#241a3d" stroke="#a894dd" stroke-width="2.5"/>
-              <line x1="-9" y1="-9" x2="9" y2="9"/>
-              <line x1="-9" y1="9" x2="9" y2="-9"/>
-            </g>
-            <line x1="-41" y1="-242" x2="-59" y2="-184" stroke="#6a4fc4" stroke-width="27" stroke-linecap="round"/>
-            <line x1="43" y1="-242" x2="61" y2="-184" stroke="#6a4fc4" stroke-width="27" stroke-linecap="round"/>
-            <circle cx="-59" cy="-184" r="15" fill="#e7e0f7"/>
-            <circle cx="61" cy="-184" r="15" fill="#e7e0f7"/>
-          </g>
-
-          <!-- FRONT CENTER: the master, wrench raised -->
-          <g transform="translate(240,432) scale(1.14)">
-            <rect x="-41" y="-126" width="36" height="112" rx="15" fill="#5a3fa0"/>
-            <rect x="5" y="-126" width="36" height="112" rx="15" fill="#5a3fa0"/>
-            <rect x="-47" y="-24" width="48" height="24" rx="8" fill="#2f2158"/>
-            <rect x="-1" y="-24" width="48" height="24" rx="8" fill="#2f2158"/>
-            <rect x="-51" y="-264" width="104" height="140" rx="30" fill="#7c4fe0"/>
-            <rect x="-71" y="-148" width="144" height="20" rx="7" fill="#2f2158"/>
-            <rect x="-73" y="-152" width="24" height="28" rx="5" fill="#4c1d95"/>
-            <rect x="-11" y="-276" width="22" height="16" fill="#e7c9a3"/>
-            <circle cx="0" cy="-304" r="34" fill="#f3d9b6"/>
-            <path d="M-33,-308a33 33 0 0 1 66 0c0 4-6 4-10 0-8-8-20-10-28-10-10 0-20 3-27 9-2 2-1 1-1 1z" fill="#3d2e17"/>
-            <!-- hand on hip -->
-            <line x1="-41" y1="-242" x2="-66" y2="-186" stroke="#7c4fe0" stroke-width="27" stroke-linecap="round"/>
-            <circle cx="-66" cy="-186" r="15" fill="#f3eefc"/>
-            <!-- raised arm + wrench -->
-            <line x1="43" y1="-244" x2="72" y2="-348" stroke="#7c4fe0" stroke-width="27" stroke-linecap="round"/>
-            <g transform="translate(72,-348) rotate(8)">
-              <rect x="-11" y="-116" width="22" height="98" rx="11" fill="#4c1d95"/>
-              <circle cx="0" cy="-122" r="22" fill="none" stroke="#4c1d95" stroke-width="14"/>
-              <circle cx="0" cy="-122" r="22" fill="none" stroke="#c9b3ff" stroke-width="3"/>
-            </g>
-            <circle cx="72" cy="-348" r="15" fill="#f3eefc"/>
-            <!-- sparkle -->
-            <g fill="#ffffff">
-              <path d="M78,-392 l3,7 7,3 -7,3 -3,7 -3,-7 -7,-3 7,-3 Z" opacity=".85"/>
-              <circle cx="102" cy="-368" r="3" opacity=".55"/>
-              <circle cx="52" cy="-398" r="2.2" opacity=".45"/>
-            </g>
-          </g>
-        </svg>
+      <div class="hero-side" aria-hidden="false">
+        <small data-i18n="hero.side.k">Быстрая помощь</small>
+        <strong data-i18n="hero.side.v">Цена — до приезда мастера</strong>
       </div>
-    </div>
   </section>
 
   <div class="pipe-divider"></div>
@@ -595,10 +505,26 @@
             <p data-i18n="svc.repair.desc">Замена картриджей, прокладок, кранов и смывных бачков — быстро и без лишних деталей.</p>
           </div>
         </div>
+        <div class="svc-card">
+          <div class="svc-photo"><img src="photos/boiler.jpg" alt="Gazowy kocioł wiszący" loading="lazy" style="object-position:center 62%"></div>
+          <div class="svc-body">
+            <div class="svc-icon"><svg class="icon"><use href="#i-flame"/></svg></div>
+            <h3 data-i18n="svc.boiler.title">Монтаж газовых котлов</h3>
+            <p data-i18n="svc.boiler.desc">Монтаж и подключение газовых котлов: установка, обвязка, дымоход, подключение к отоплению и горячей воде, пуск и проверка герметичности.</p>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-photo"><img src="photos/fire.jpg" alt="Czujnik przeciwpożarowy" loading="lazy" style="object-position:75% center"></div>
+          <div class="svc-body">
+            <div class="svc-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+            <h3 data-i18n="svc.fire.title">Монтаж пожарных систем</h3>
+            <p data-i18n="svc.fire.desc">Монтаж систем пожарной безопасности: спринклерные и гидрантные установки, трубопроводы и подключение к водопроводу.</p>
+          </div>
+        </div>
         <div class="svc-card svc-card--wide">
           <div class="svc-photo"><img src="photos/pompy.jpg" alt="Pompy ciepła Daikin, LG, Panasonic, NIBE, Mitsubishi Electric" loading="lazy"></div>
           <div class="svc-body">
-            <div class="svc-icon"><svg class="icon"><use href="#i-flame"/></svg></div>
+            <div class="svc-icon"><svg class="icon"><use href="#i-bolt"/></svg></div>
             <h3 data-i18n="svc.pump.title">Тепловые насосы</h3>
             <p data-i18n="svc.pump.desc">Подбор, монтаж и подключение воздушных тепловых насосов к системе отопления и горячей воды: наружный блок, обвязка, бойлер, запуск и настройка.</p>
           </div>
@@ -866,6 +792,8 @@
       <h4 data-i18n="foot.servicesHeading">Услуги</h4>
       <ul>
         <li><a href="#services" data-i18n="svc.repair.title">Мелкий ремонт</a></li>
+        <li><a href="#services" data-i18n="svc.boiler.title">Монтаж газовых котлов</a></li>
+        <li><a href="#services" data-i18n="svc.fire.title">Монтаж пожарных систем</a></li>
         <li><a href="#services" data-i18n="svc.pump.title">Тепловые насосы</a></li>
         <li><a href="#services" data-i18n="svc.water.title">Водопровод и канализация</a></li>
         <li><a href="#services" data-i18n="svc.heat.title">Отопление</a></li>
@@ -904,6 +832,8 @@
         "hero.title2":"раньше, чем вы досмотрите видео «как остановить течь»",
         "hero.lead":"Водопровод и канализация, отопление, сантехническое оборудование — в Варшаве и области. Диагностируем по телефону, называем цену до приезда, работаем по договору.",
         "hero.callNow":"Позвонить сейчас",
+        "hero.side.k":"Быстрая помощь",
+        "hero.side.v":"Цена — до приезда мастера",
         "hero.leaveOnline":"Оставить заявку онлайн",
         "trust.years":"года на рынке",
         "trust.orders":"выполненных заказов",
@@ -928,6 +858,10 @@
         "svc.fixtures.price":"от 200 zł",
         "svc.repair.title":"Мелкий ремонт",
         "svc.repair.desc":"Замена картриджей, прокладок, кранов и смывных бачков — быстро и без лишних деталей.",
+        "svc.boiler.title":"Монтаж газовых котлов",
+        "svc.boiler.desc":"Монтаж и подключение газовых котлов: установка, обвязка, дымоход, подключение к отоплению и горячей воде, пуск и проверка герметичности.",
+        "svc.fire.title":"Монтаж пожарных систем",
+        "svc.fire.desc":"Монтаж систем пожарной безопасности: спринклерные и гидрантные установки, трубопроводы и подключение к водопроводу.",
         "svc.pump.title":"Тепловые насосы",
         "svc.pump.desc":"Подбор, монтаж и подключение воздушных тепловых насосов к системе отопления и горячей воды: наружный блок, обвязка, бойлер, запуск и настройка.",
         "svc.repair.price":"от 110 zł",
@@ -1046,6 +980,8 @@
         "hero.title2":"zanim dokończysz oglądać wideo «jak zatrzymać wyciek»",
         "hero.lead":"Instalacje wodno-kanalizacyjne, ogrzewanie, armatura sanitarna — w Warszawie i okolicach. Diagnozujemy telefonicznie, podajemy cenę przed przyjazdem, pracujemy na podstawie umowy.",
         "hero.callNow":"Zadzwoń teraz",
+        "hero.side.k":"Szybka pomoc",
+        "hero.side.v":"Cena — przed przyjazdem",
         "hero.leaveOnline":"Zostaw zgłoszenie online",
         "trust.years":"lat na rynku",
         "trust.orders":"zrealizowanych zleceń",
@@ -1070,6 +1006,10 @@
         "svc.fixtures.price":"od 200 zł",
         "svc.repair.title":"Drobne naprawy",
         "svc.repair.desc":"Wymiana głowic, uszczelek, zaworów i spłuczek — szybko i bez zbędnych formalności.",
+        "svc.boiler.title":"Montaż kotłów gazowych",
+        "svc.boiler.desc":"Montaż i podłączenie kotłów gazowych: instalacja, orurowanie, odprowadzanie spalin, podłączenie do ogrzewania i ciepłej wody, uruchomienie i próba szczelności.",
+        "svc.fire.title":"Montaż systemów przeciwpożarowych",
+        "svc.fire.desc":"Montaż systemów bezpieczeństwa pożarowego: instalacje tryskaczowe i hydrantowe, rurociągi oraz podłączenie do sieci wodociągowej.",
         "svc.pump.title":"Pompy ciepła",
         "svc.pump.desc":"Dobór, montaż i podłączenie powietrznych pomp ciepła do instalacji grzewczej i ciepłej wody: jednostka zewnętrzna, orurowanie, zasobnik, uruchomienie i regulacja.",
         "svc.repair.price":"od 110 zł",
@@ -1275,5 +1215,31 @@
   })();
 </script>
 
+<script>
+/* hero: дождь и круги на воде */
+(function(){
+  var host=document.querySelector('.hero'), cv=host&&host.querySelector('.hero-fx'); if(!cv||!cv.getContext) return;
+  var ctx=cv.getContext('2d'), W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2), drops=[], rings=[], last=0, on=true;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){W=host.clientWidth;H=host.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size();
+  if(window.ResizeObserver) new ResizeObserver(size).observe(host); else window.addEventListener('resize',size);
+  function frame(t){
+    var dt=Math.min((t-last)/1000||0.016,0.05); last=t;
+    ctx.clearRect(0,0,W,H);
+    if(Math.random()<dt*(W<600?9:14)) drops.push({x:Math.random()*W,y:-10,v:260+Math.random()*260,y1:H*0.86+Math.random()*H*0.1});
+    for(var i=drops.length-1;i>=0;i--){var d=drops[i];d.y+=d.v*dt;
+      ctx.strokeStyle='rgba(215,200,255,.75)';ctx.lineWidth=1.6;ctx.beginPath();ctx.moveTo(d.x,d.y-14);ctx.lineTo(d.x,d.y);ctx.stroke();
+      if(d.y>=d.y1){rings.push({x:d.x,y:d.y1,r:2,a:.8});drops.splice(i,1);}}
+    for(var j=rings.length-1;j>=0;j--){var r=rings[j];r.r+=38*dt;r.a-=0.5*dt;
+      if(r.a<=0){rings.splice(j,1);continue;}
+      ctx.strokeStyle='rgba(196,176,255,'+r.a.toFixed(3)+')';ctx.lineWidth=1.5;ctx.beginPath();ctx.ellipse(r.x,r.y,r.r*2.4,r.r*0.6,0,0,6.283);ctx.stroke();}
+  }
+  function loop(t){if(on)frame(t);requestAnimationFrame(loop);}
+  if('IntersectionObserver' in window) new IntersectionObserver(function(e){on=e[0].isIntersecting;}).observe(host);
+  if(reduce){for(var k=0;k<8;k++){rings.push({x:Math.random()*W,y:H*0.86+Math.random()*H*0.1,r:10+Math.random()*50,a:.5});} frame(0); return;}
+  requestAnimationFrame(loop);
+})();
+</script>
 </body>
 </html>
