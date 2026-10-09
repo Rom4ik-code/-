@@ -1250,5 +1250,14 @@
   requestAnimationFrame(loop);
 })();
 </script>
+<script>
+  gtag('config', 'AW-18499847888');
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="tel:"], a[href*="wa.me"]');
+    if (link) {
+      gtag('event', 'conversion', {'send_to': 'AW-18499847888/_LuYCPnJjZcdENCNtfVE'});
+    }
+  });
+</script>
 </body>
 </html>
