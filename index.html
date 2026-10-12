@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18135623667"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18135623667');
-</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="HydraMan — hydraulik na wezwanie w Warszawie i okolicach.">
@@ -160,6 +151,7 @@
     padding-block: clamp(40px,7vw,84px) clamp(36px,6vw,72px);
     min-height:min(560px,80vh);
   }
+  .hero-city{position:absolute; right:clamp(16px,6vw,96px); top:52%; z-index:0; pointer-events:none; user-select:none; font-family:"Barlow Condensed",system-ui,sans-serif; font-weight:800; text-transform:uppercase; letter-spacing:.04em; line-height:1; font-size:clamp(3rem,7vw,6.2rem); color:transparent; -webkit-text-stroke:2px rgba(201,182,255,.38); text-shadow:0 0 40px rgba(147,51,234,.35);}
   .hero-fx{position:absolute; inset:0; width:100%; height:100%; z-index:0; display:block;}
   .hero .wrap{position:relative; z-index:2; display:grid; grid-template-columns:1.15fr .85fr; gap:32px; align-items:end;}
   .hero-copy{max-width:640px; min-width:0;}
@@ -186,6 +178,34 @@
   .icon{width:26px;height:26px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;}
 
   /* pipe divider */
+  /* септик */
+  .septic-grid{display:grid; grid-template-columns:.95fr 1.05fr; gap:clamp(24px,4vw,56px); align-items:start;}
+  .septic-media{position:relative; display:grid; grid-template-columns:1fr 1fr; gap:12px; min-width:0;}
+  .septic-main{grid-column:1/-1; border-radius:20px; overflow:hidden; border:1px solid var(--line); aspect-ratio:1/1; background:var(--surface-2); box-shadow:0 22px 44px -26px rgba(60,28,120,.55);}
+  .septic-main img,.septic-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .septic-thumb{position:relative; margin:0; aspect-ratio:4/3; border-radius:16px; overflow:hidden; border:1px solid var(--line); background:var(--surface-2); box-shadow:0 14px 30px -20px rgba(60,28,120,.55);}
+  .septic-thumb figcaption{position:absolute; left:0; right:0; bottom:0; padding:22px 12px 9px; font-size:.8rem; font-weight:600; color:#fff; background:linear-gradient(180deg, rgba(20,15,38,0), rgba(20,15,38,.78));}
+  .septic-badge{position:absolute; left:14px; top:14px; background:var(--accent); color:var(--accent-ink); font-family:"IBM Plex Mono",monospace; font-size:.72rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:7px 14px; border-radius:999px;}
+  .septic-copy{min-width:0;}
+  .septic-intro{font-size:1.02rem; line-height:1.65; margin-bottom:22px; color:var(--ink);}
+  .septic-steps-h{font-size:1.05rem; text-transform:none; letter-spacing:0; font-weight:700; margin-bottom:14px;}
+  .septic-steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column;}
+  .septic-steps li{display:grid; grid-template-columns:40px 1fr; gap:14px; position:relative; padding-bottom:18px;}
+  .septic-steps li:last-child{padding-bottom:0;}
+  .septic-steps li:not(:last-child)::before{content:""; position:absolute; left:19px; top:40px; bottom:2px; border-left:2px dashed var(--line);}
+  .septic-steps .sn{width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--surface); border:2px solid var(--accent); color:var(--accent); font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:.95rem; position:relative; z-index:1;}
+  .septic-steps li > div{display:flex; flex-direction:column; gap:3px; min-width:0; padding-top:2px;}
+  .septic-steps b{font-size:.98rem; font-weight:700; color:var(--ink);}
+  .septic-steps li > div > span{font-size:.9rem; line-height:1.5; color:var(--ink-soft);}
+  .septic-foot{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:34px; align-items:stretch;}
+  .septic-note{background:var(--surface-2); border-left:4px solid var(--accent); border-radius:0 14px 14px 0; padding:20px 22px; display:flex; flex-direction:column; gap:6px; min-width:0;}
+  .septic-note b{font-size:1.05rem; color:var(--ink);}
+  .septic-note p{font-size:.95rem;}
+  .septic-side{display:flex; flex-direction:column; gap:16px; justify-content:space-between; min-width:0;}
+  .septic-chips{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .septic-chips li{display:flex; align-items:center; gap:9px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:10px 12px; font-size:.86rem; font-weight:600; color:var(--ink); min-width:0;}
+  .septic-chips .icon{width:18px; height:18px; flex-shrink:0; color:var(--accent);}
+  .septic-side .btn{align-self:flex-start;}
   .pipe-divider{max-width:1160px; margin:0 auto; height:2px; background:repeating-linear-gradient(90deg, var(--line) 0 9px, transparent 9px 20px);}
 
   /* section heads */
@@ -374,8 +394,11 @@
     .navtoggle{display:inline-flex; align-items:center;}
     .hero .wrap{grid-template-columns:1fr;}
     .hero-side{justify-self:start;}
+    .hero-city{top:auto; bottom:215px; left:16px; right:16px; text-align:center; font-size:11.5vw; letter-spacing:.02em; -webkit-text-stroke-width:1.5px; opacity:.6;}
     .hero{min-height:0;}
     .about-grid{grid-template-columns:1fr;}
+    .septic-grid,.septic-foot{grid-template-columns:1fr;}
+    .septic-media{max-width:560px;}
     .svc-grid, .gal-grid, .rev-grid{grid-template-columns:repeat(2,1fr);}
     .svc-card--wide{grid-template-columns:1fr;}
     .svc-card--wide .svc-photo{aspect-ratio:3/2; min-height:0;}
@@ -390,6 +413,7 @@
   @media (max-width:560px){
     .svc-grid, .gal-grid, .rev-grid{grid-template-columns:1fr;}
     .trust-strip{gap:16px;}
+    .septic-chips{grid-template-columns:1fr;}
   }
   @media (max-width:360px){
     .brand-tag{display:none;}
@@ -449,6 +473,7 @@
 
 <main id="top">
   <section class="hero">
+    <div class="hero-city" aria-hidden="true" data-i18n="hero.city">Варшава</div>
     <canvas class="hero-fx" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="hero-copy">
@@ -537,6 +562,55 @@
             <h3 data-i18n="svc.pump.title">Тепловые насосы</h3>
             <p data-i18n="svc.pump.desc">Подбор, монтаж и подключение воздушных тепловых насосов к системе отопления и горячей воды: наружный блок, обвязка, бойлер, запуск и настройка.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pipe-divider"></div>
+
+  <section id="septic">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow" data-i18n="septic.eyebrow">Септики и ёмкости</span>
+          <h2 data-i18n="septic.h2">Септик с нуля — от котлована до запуска</h2>
+        </div>
+        <p data-i18n="septic.lead">Подбираем ёмкость, ведём установку и подключение, запускаем систему. Один подрядчик на весь процесс — без поиска отдельно техники и мастеров.</p>
+      </div>
+      <div class="septic-grid">
+        <div class="septic-media">
+          <div class="septic-main"><img src="photos/septic-install.jpg" alt="Montaż zbiornika na ścieki: zbiornik opuszczany do wykopu koparką" loading="lazy"></div>
+          <figure class="septic-thumb"><img src="photos/septic-green.jpg" alt="Plastikowy zbiornik w wykopie, przed zasypaniem" loading="lazy"><figcaption data-i18n="septic.cap1">Пластиковая ёмкость</figcaption></figure>
+          <figure class="septic-thumb"><img src="photos/septic-ring.jpg" alt="Betonowe kręgi ze zielonym włazem na działce" loading="lazy"><figcaption data-i18n="septic.cap2">Бетонные кольца</figcaption></figure>
+          <span class="septic-badge" data-i18n="septic.badge">С нуля до запуска</span>
+        </div>
+        <div class="septic-copy">
+          <p class="septic-intro" data-i18n="septic.intro">Септик — это не просто бочка в земле.</p>
+          <h3 class="septic-steps-h" data-i18n="septic.steps">Как проходит работа</h3>
+          <ol class="septic-steps">
+            <li><span class="sn">1</span><div><b data-i18n="septic.s1t">Выезд и осмотр участка</b><span data-i18n="septic.s1d"></span></div></li>
+            <li><span class="sn">2</span><div><b data-i18n="septic.s2t">Подбор септика</b><span data-i18n="septic.s2d"></span></div></li>
+            <li><span class="sn">3</span><div><b data-i18n="septic.s3t">Котлован и подушка</b><span data-i18n="septic.s3d"></span></div></li>
+            <li><span class="sn">4</span><div><b data-i18n="septic.s4t">Установка ёмкости</b><span data-i18n="septic.s4d"></span></div></li>
+            <li><span class="sn">5</span><div><b data-i18n="septic.s5t">Трубы и подключение</b><span data-i18n="septic.s5d"></span></div></li>
+            <li><span class="sn">6</span><div><b data-i18n="septic.s6t">Засыпка и запуск</b><span data-i18n="septic.s6d"></span></div></li>
+          </ol>
+        </div>
+      </div>
+      <div class="septic-foot">
+        <div class="septic-note">
+          <b data-i18n="septic.noteT">Работаем с нуля</b>
+          <p data-i18n="septic.noteD"></p>
+        </div>
+        <div class="septic-side">
+          <ul class="septic-chips">
+            <li><svg class="icon"><use href="#i-shield"/></svg><span data-i18n="septic.c1">Всё под ключ</span></li>
+            <li><svg class="icon"><use href="#i-drop"/></svg><span data-i18n="septic.c2">Объём под вашу семью</span></li>
+            <li><svg class="icon"><use href="#i-phone"/></svg><span data-i18n="septic.c3">Консультация по телефону</span></li>
+            <li><svg class="icon"><use href="#i-clock"/></svg><span data-i18n="septic.c4">Цена — до начала работ</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#contact" data-i18n="septic.cta">Узнать стоимость</a>
         </div>
       </div>
     </div>
@@ -804,6 +878,7 @@
         <li><a href="#services" data-i18n="svc.boiler.title">Монтаж газовых котлов</a></li>
         <li><a href="#services" data-i18n="svc.fire.title">Монтаж пожарных систем</a></li>
         <li><a href="#services" data-i18n="svc.pump.title">Тепловые насосы</a></li>
+        <li><a href="#septic" data-i18n="septic.eyebrow">Септики и ёмкости</a></li>
         <li><a href="#services" data-i18n="svc.water.title">Водопровод и канализация</a></li>
         <li><a href="#services" data-i18n="svc.heat.title">Отопление</a></li>
       </ul>
@@ -830,6 +905,33 @@
       ru: {
         "brand.tag":"сантехник по вызову",
         "nav.services":"Услуги",
+        "septic.eyebrow":"Септики и ёмкости",
+        "septic.h2":"Септик с нуля — от котлована до запуска",
+        "septic.lead":"Подбираем ёмкость, ведём установку и подключение, запускаем систему. Один подрядчик на весь процесс — без поиска отдельно техники и мастеров.",
+        "septic.badge":"С нуля до запуска",
+        "septic.cap1":"Пластиковая ёмкость",
+        "septic.cap2":"Бетонные кольца",
+        "septic.intro":"Септик — это не просто бочка в земле. Если неправильно выдержать уклон труб, не сделать подушку под ёмкость или засыпать её «насухо», со временем появятся запах и засоры, а пустую ёмкость весной может выдавить грунтовыми водами. Поэтому делаем один раз и по технологии — чтобы эта тема больше не напоминала о себе.",
+        "septic.steps":"Как проходит работа",
+        "septic.s1t":"Выезд и осмотр участка",
+        "septic.s1d":"Смотрим грунт, уровень грунтовых вод, расстояние до дома, колодца и границы участка. Решаем, где ёмкость встанет правильно и удобно для откачки.",
+        "septic.s2t":"Подбор септика",
+        "septic.s2d":"Считаем объём под количество жильцов и подбираем тип: накопительная ёмкость или система с очисткой. Разницу объясняем простыми словами.",
+        "septic.s3t":"Котлован и подушка",
+        "septic.s3d":"Выкапываем котлован нужной глубины, выравниваем дно и делаем песчано-щебёночную подушку, чтобы ёмкость стояла ровно и не оседала.",
+        "septic.s4t":"Установка ёмкости",
+        "septic.s4d":"Опускаем септик в котлован техникой, выставляем по уровню и фиксируем, чтобы его не выдавило при высоких грунтовых водах.",
+        "septic.s5t":"Трубы и подключение",
+        "septic.s5d":"Прокладываем подводящую канализацию с правильным уклоном, подключаем вход и выход, выводим вентиляцию.",
+        "septic.s6t":"Засыпка и запуск",
+        "septic.s6d":"Засыпаем слоями, одновременно заполняя ёмкость водой, выводим люки на нужную высоту, проверяем соединения и запускаем систему.",
+        "septic.noteT":"Работаем с нуля",
+        "septic.noteD":"Ничего готовить заранее не нужно: если на участке ещё нет ни ямы, ни труб — это нормально. Начинаем с замеров и доводим до работающей системы.",
+        "septic.c1":"Всё под ключ",
+        "septic.c2":"Объём под вашу семью",
+        "septic.c3":"Консультация по телефону",
+        "septic.c4":"Цена — до начала работ",
+        "septic.cta":"Узнать стоимость",
         "nav.pricing":"Цены",
         "nav.coverage":"Район",
         "nav.reviews":"Отзывы",
@@ -841,6 +943,7 @@
         "hero.title2":"раньше, чем вы досмотрите видео «как остановить течь»",
         "hero.lead":"Водопровод и канализация, отопление, сантехническое оборудование — в Варшаве и области. Диагностируем по телефону, называем цену до приезда, работаем по договору.",
         "hero.callNow":"Позвонить сейчас",
+        "hero.city":"Варшава",
         "hero.side.k":"Быстрая помощь",
         "hero.side.v":"Цена — до приезда мастера",
         "hero.leaveOnline":"Оставить заявку онлайн",
@@ -978,6 +1081,33 @@
       pl: {
         "brand.tag":"hydraulik na wezwanie",
         "nav.services":"Usługi",
+        "septic.eyebrow":"Szamba i zbiorniki",
+        "septic.h2":"Szambo od zera — od wykopu do uruchomienia",
+        "septic.lead":"Dobieramy zbiornik, prowadzimy montaż i podłączenie, uruchamiamy system. Jeden wykonawca na cały proces — bez szukania osobno sprzętu i fachowców.",
+        "septic.badge":"Od zera do rozruchu",
+        "septic.cap1":"Zbiornik plastikowy",
+        "septic.cap2":"Kręgi betonowe",
+        "septic.intro":"Szambo to nie tylko zbiornik w ziemi. Jeśli źle wykonamy spadek rur, pominiemy podsypkę pod zbiornik albo zasypiemy go „na sucho”, z czasem pojawi się zapach i zatory, a pusty zbiornik wiosną może wypchnąć woda gruntowa. Dlatego robimy to raz i zgodnie ze sztuką — żeby temat nie wracał.",
+        "septic.steps":"Jak wygląda praca",
+        "septic.s1t":"Wizyta i oględziny działki",
+        "septic.s1d":"Sprawdzamy grunt, poziom wód gruntowych oraz odległość od domu, studni i granicy działki. Ustalamy, gdzie zbiornik stanie prawidłowo i wygodnie dla wozu asenizacyjnego.",
+        "septic.s2t":"Dobór zbiornika",
+        "septic.s2d":"Liczymy pojemność dla liczby domowników i dobieramy typ: zbiornik bezodpływowy lub system z oczyszczaniem. Różnicę tłumaczymy prostym językiem.",
+        "septic.s3t":"Wykop i podsypka",
+        "septic.s3d":"Kopiemy wykop na odpowiednią głębokość, wyrównujemy dno i wykonujemy podsypkę piaskowo-żwirową, żeby zbiornik stał równo i nie osiadał.",
+        "septic.s4t":"Montaż zbiornika",
+        "septic.s4d":"Opuszczamy zbiornik do wykopu sprzętem, ustawiamy w poziomie i kotwiczymy, żeby nie wypchnęła go woda gruntowa.",
+        "septic.s5t":"Rury i podłączenie",
+        "septic.s5d":"Układamy kanalizację dopływową z właściwym spadkiem, podłączamy wlot i wylot, wyprowadzamy wentylację.",
+        "septic.s6t":"Zasypka i uruchomienie",
+        "septic.s6d":"Zasypujemy warstwami, równocześnie napełniając zbiornik wodą, wyprowadzamy włazy na właściwą wysokość, sprawdzamy połączenia i uruchamiamy system.",
+        "septic.noteT":"Pracujemy od zera",
+        "septic.noteD":"Nie musisz niczego przygotowywać: jeśli na działce nie ma jeszcze ani wykopu, ani rur — to normalne. Zaczynamy od pomiarów i prowadzimy do działającego systemu.",
+        "septic.c1":"Wszystko pod klucz",
+        "septic.c2":"Pojemność dla Twojej rodziny",
+        "septic.c3":"Konsultacja telefoniczna",
+        "septic.c4":"Cena przed rozpoczęciem prac",
+        "septic.cta":"Zapytaj o wycenę",
         "nav.pricing":"Cennik",
         "nav.coverage":"Zasięg",
         "nav.reviews":"Opinie",
@@ -989,6 +1119,7 @@
         "hero.title2":"zanim dokończysz oglądać wideo «jak zatrzymać wyciek»",
         "hero.lead":"Instalacje wodno-kanalizacyjne, ogrzewanie, armatura sanitarna — w Warszawie i okolicach. Diagnozujemy telefonicznie, podajemy cenę przed przyjazdem, pracujemy na podstawie umowy.",
         "hero.callNow":"Zadzwoń teraz",
+        "hero.city":"Warszawa",
         "hero.side.k":"Szybka pomoc",
         "hero.side.v":"Cena — przed przyjazdem",
         "hero.leaveOnline":"Zostaw zgłoszenie online",
@@ -1249,15 +1380,6 @@
   if(reduce){for(var k=0;k<8;k++){rings.push({x:Math.random()*W,y:H*0.86+Math.random()*H*0.1,r:10+Math.random()*50,a:.5});} frame(0); return;}
   requestAnimationFrame(loop);
 })();
-</script>
-<script>
-  gtag('config', 'AW-18499847888');
-  document.addEventListener('click', function (e) {
-    var link = e.target.closest('a[href^="tel:"], a[href*="wa.me"]');
-    if (link) {
-      gtag('event', 'conversion', {'send_to': 'AW-18499847888/_LuYCPnJjZcdENCNtfVE'});
-    }
-  });
 </script>
 </body>
 </html>
